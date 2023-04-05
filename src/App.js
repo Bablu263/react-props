@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import data from './data'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="card">
+    {
+    data.map((eacho) =>
+    {
+      const {id,title,url,thumbnailUrl} = eacho;
+      return (
+        <Pro
+          key = {id}
+          id  = {id}
+          title  = {title}
+          url = {url}
+          thumbnailUrl = {thumbnailUrl}
+        />
+      )
+    }
+    )
+     }
     </div>
   );
 }
 
+const Pro = ({id,title,thumbnailUrl}) =>
+{
+  return (<div className="card1">
+  <div className="inside">
+    <img className="image" src={thumbnailUrl} alt=""></img>
+    <h3 className="para">{title}</h3>
+    <a className="details" href={thumbnailUrl}>Details</a>
+  </div>
+</div>
+);  
+}
 export default App;
